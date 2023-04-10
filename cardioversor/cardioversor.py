@@ -29,10 +29,11 @@ class Cardioversor:
         self.ligado = False
     
     def get_status(self):
-        return {
-            'freq_cardiaca': self.freq_cardiaca,
-            'identificador_marca_passo': self.identificador_marca_passo,
-            'potencia': self.potencia,
-            'frequencia': self.frequencia,
-            'ligado': self.ligado
+        return { "cardioversor": {
+                "freq_cardiaca": self.freq_cardiaca,
+                "identificador_marca_passo": self.identificador_marca_passo,
+                "potencia": self.potencia,
+                "frequencia": self.frequencia,
+                "ligado": self.ligado
+            }
         }
