@@ -41,18 +41,18 @@ class Cardioversor:
         """
         Metodo para ligar o cardioversor
         """
-        if self.identificador_marca_passo == False:
+        if self.identificador_marca_passo is False:
             self.ligado = True
             return {"message": "Cardioversor ligado com sucesso"}
-        else: 
-            return {"aviso": "Marca passo identificado"}
+
+        return {"aviso": "Marca passo identificado"}
 
     def desligar(self):
         """
         Metodo para desligar o cardioversor
         """
         self.ligado = False
-    
+
     def get_status(self):
         """
         Metodo para recuperar o status do cardioversor
