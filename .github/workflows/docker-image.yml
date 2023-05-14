@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: rafaellopesbr/avanti-devops-ec2
+          images: rafaellopesbr/uti-cardioversor
           tags: |
             type=ref,event=branch
             type=ref,event=pr
