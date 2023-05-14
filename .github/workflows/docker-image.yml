@@ -32,5 +32,9 @@ jobs:
           context: .
           file: ./cardioversor/Dockerfile
           push: true
-          tags: cardioversor, ${{ steps.meta.outputs.tags }}
-          labels: cardioversor, ${{ steps.meta.outputs.labels }}
+          tags: 
+            ${{ steps.meta.outputs.tags }}
+            cardioversor
+          labels: 
+            ${{ steps.meta.outputs.labels }}
+            cardioversor
