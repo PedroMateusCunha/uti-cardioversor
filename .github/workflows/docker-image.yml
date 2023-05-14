@@ -25,6 +25,10 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: rafaellopesbr/avanti-devops-ec2
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
       
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -32,9 +36,5 @@ jobs:
           context: .
           file: ./cardioversor/Dockerfile
           push: true
-          tags: 
-            ${{ steps.meta.outputs.tags }}
-            cardioversor
-          labels: 
-            ${{ steps.meta.outputs.labels }}
-            cardioversor
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
