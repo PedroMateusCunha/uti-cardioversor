@@ -4,18 +4,19 @@ from cardioversor import Cardioversor
 app = FastAPI()
 cardioversor = Cardioversor()
 
+cardioversor.get_freq_cardiaca()
+
 @app.get("/")
 def read_root():
     return {"message": "Cardioversor"}
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 @app.get("/status")
 def check_status():
     return cardioversor.get_status()
-
-@app.put("/freq_cardiaca/{freq_cardiaca}")
-def set_freq_cardiaca(freq_cardiaca: int):
-    cardioversor.set_freq_cardiaca(freq_cardiaca)
-    return {"message": "Frequência cardíaca atualizada com sucesso"}
 
 @app.put("/identificador_marca_passo/{identificador_marca_passo}")
 def set_identificador_marca_passo(identificador_marca_passo: bool):

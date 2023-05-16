@@ -13,8 +13,16 @@ services:
       volumes:
         - ./cardioversor:/usr/app
       restart: unless-stopped
+      env_file:
+        - .env
       healthcheck:
         test: ["CMD-SHELL", "curl -f http://localhost:${BACKEND_PORT:-7004}/health || exit 1"]
         interval: 1m
         timeout: 10s
         retries: 5
+      networks:
+        - uti-monitor-sinais-vitais_projeto_uti
+
+networks:
+  uti-monitor-sinais-vitais_projeto_uti:
+    external: true
