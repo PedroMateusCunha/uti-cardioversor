@@ -3,15 +3,13 @@ services:
       container_name: ${APP_NAME:-cardioversor}-${ENV_NAME:-dev}
       image: ${APP_NAME:-cardioversor}:${ENV_NAME:-dev}
       build:
-        context: ./cardioversor
-        dockerfile: ./Dockerfile
+        context: .
+        dockerfile: ./cardioversor/Dockerfile
         args:
           APP_NAME: ${APP_NAME:-cardioversor}
           ENV_NAME: ${ENV_NAME:-dev}
       ports:
         - "${SINAIS_VITAIS_PORT:-7004}:8000"
-      volumes:
-        - ./cardioversor:/usr/app
       restart: unless-stopped
       env_file:
         - .env
